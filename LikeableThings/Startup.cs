@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using LikeableThings.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using LikeableThings.Models;
 
 namespace LikeableThings
 {
@@ -38,7 +39,7 @@ namespace LikeableThings
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
